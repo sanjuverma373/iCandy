@@ -48,7 +48,8 @@
 .openSans {
         font-family: "Open Sans", sans-serif;
 }
-.gap-15{
+
+.gap-15 {
         gap: 15px;
 }
 
@@ -63,9 +64,15 @@
         background-repeat: no-repeat;
         min-height: 100vh;
 }
-.px-3{
+
+.px-3 {
         padding-left: 12px;
         padding-right: 12px;
+}
+
+.relative {
+        position: relative;
+
 }
 
 .iCandyImg {
@@ -74,24 +81,44 @@
 }
 
 .headingSection {
-        position: relative;
         width: 100%;
         text-align: center;
         font-weight: 800;
-        font-size: 22px;        
-        -webkit-text-fill-color: transparent;        
-        color: transparent;
+        font-size: 22px;
+        -webkit-text-fill-color: transparent;   
 }
 
-.headingSection::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: 100%;
-        width: 100%;
-        background-image: url("../image/svg/text-image.svg");
-        background-size: 100% 100%;
+.headingSection{
+        background: url("../image/webp/text-bg.webp");
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+        background-clip: text;
+        background-size: cover;
+        -webkit-background-clip: text;
+        animation: moveBackground 20s linear infinite;
+}
+
+@keyframes moveBackground {
+        0% {
+                background-position: 10% 10%;
+        }
+
+        50% {
+                background-position: 40% 40%;
+        }
+
+        100% {
+                background-position: 10% 10%;
+        }
+}
+
+
+.icons {
+        transition: .4s;
+}
+
+.icons:hover {
+        transform: translateY(-20%);
 }
 
 .paraLine {
@@ -118,6 +145,32 @@
         color: #0F63DD;
 }
 
+.lineBox {
+        position: absolute;
+        bottom: 38px;
+        right: 35px;
+        box-shadow: 0px 4px 16.6px 0px #8058B3;
+        border-radius: 10px;
+        width: 40px;
+        height: 40px;
+        animation: boxAnimation 3s ease infinite;
+}
+
+@keyframes boxAnimation {
+
+        0%,
+        100% {
+                transform: scale(1);
+                box-shadow: 0px 4px 16.6px 0px #8058B3;
+        }
+
+        50% {
+                transform: scale(1.2);
+                box-shadow: 0px 4px 20px 0px #8058B3;
+        }
+}
+
+
 /* ------------- media quary------------- */
 
 @media (min-width:575.9px) {
@@ -125,54 +178,79 @@
                 max-width: 300px;
                 height: 200px;
         }
+
         .headingSection {
                 font-size: 28px;
         }
+
         .paraLine {
                 font-size: 18px;
                 line-height: 28px;
                 margin-bottom: 26px;
         }
+
         .para2 {
                 line-height: 28px;
                 font-size: 18px;
         }
+
+        .lineBox {
+                width: 50px;
+                height: 50px;
+        }
 }
+
 @media (min-width:767.9px) {
         .headingSection {
                 font-size: 38px;
-        }  
+        }
+
+        .lineBox {
+                width: 60px;
+                height: 60px;
+        }
 }
+
 @media (min-width:991.9px) {
         .iCandyImg {
                 max-width: 368px;
                 height: 261px;
-        } 
+        }
+
         .headingSection {
                 font-size: 48px;
-        } 
+        }
+
         .paraLine {
                 font-size: 20px;
                 line-height: 30px;
                 margin-bottom: 32px;
                 max-width: 544px;
-        } 
+        }
+
         .para2 {
                 line-height: 30px;
                 font-size: 20px;
-        }    
+        }
+
+        .lineBox {
+                width: 70px;
+                height: 70px;
+        }
 }
+
 @media (min-width:1023.9px) {
         .headingSection {
                 font-size: 58px;
-        } 
+        }
+
         .paraLine {
                 margin-bottom: 40px;
-        } 
+        }
 }
+
 @media (min-width:1280px) {
         .headingSection {
                 font-size: 72px;
-        } 
+        }
 }
-
